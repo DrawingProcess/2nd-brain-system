@@ -74,3 +74,34 @@
 - Correction: the immediately preceding lint entry reports 27 source references, but the measured canonical frontmatter total is 30.
 - Unchanged measurements: 17 claim-level markers, 33 canonical links, 8 canonical pages, and 0 lint errors or warnings.
 - Updated: `log.md` only; no raw or canonical page was changed.
+
+## [2026-07-31] update | finance 도메인 스키마 확장
+
+- Evidence: financial 정보를 위한 canonical wiki 확장을 준비하기 위해 스키마에 finance
+  도메인 태그와 raw 소스 디렉토리를 등록함. 아직 raw 레코드나 canonical 페이지는
+  생성하지 않음 (0건).
+- Registered tags: `macro`, `equity`, `earnings`, `filing`, `valuation`, `crypto`,
+  `portfolio`.
+- Created:
+  - `raw/filings/.gitkeep`
+  - `raw/earnings/.gitkeep`
+- Updated:
+  - `SCHEMA.md` (directory role table, registered tag taxonomy)
+- Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-07-31] ingest | Korean stocks record-14% AI trade optimism 뉴스
+
+- Evidence: `inbox/`에 URL 기반 뉴스 기사 1건을 임시 적재한 뒤 분류 테스트를 진행함.
+  주제가 개별 뉴스 이벤트(단일 소스)이고 아직 반복 등장하는 두 번째 소스가 없어
+  canonical 페이지는 생성하지 않음.
+- Source: `https://finance.yahoo.com/markets/stocks/articles/korean-stocks-jump-record-14-000934073.html`
+  (Bloomberg, Youkyung Lee, published 2026-07-31).
+- Verification: WebFetch 요약본을 원본 HTML(`curl`로 직접 수신)과 대조해 본문·수치가
+  실제 게재 기사와 일치함을 확인함 (Kospi +14%, SK Hynix +28%, Samsung +26%는 수치가
+  이례적으로 크지만 원문에 실제로 게재된 값임).
+- Classified into: `raw/articles/` (tags: `news`, `equity`, `macro`).
+- Created:
+  - `raw/articles/korean-stocks-jump-record-14pct-ai-optimism.md`
+- Deleted:
+  - `inbox/korean-stocks-jump-record-14pct-ai-optimism.md` (분류 완료 후 임시 적재분 제거)
+- Navigation: `index.md` unchanged; canonical page count remains 0.

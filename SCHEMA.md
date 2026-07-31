@@ -30,6 +30,8 @@ contains no raw source record and no canonical page.
 | `raw/notebooklm/` | Immutable importer-preserved NotebookLM source records and source identifiers. |
 | `raw/papers/files/` | Optional copied paper attachments; initially only the empty `.gitkeep` placeholder is allowed. |
 | `raw/transcripts/` | Immutable captured transcript Markdown. |
+| `raw/filings/` | Immutable captured financial filing or disclosure Markdown (e.g., 10-K, 10-Q, DART/SEC disclosures). |
+| `raw/earnings/` | Immutable captured earnings call or results-briefing transcript Markdown. |
 | `raw/web/` | Immutable importer-preserved web captures whose existing provenance paths must remain stable. |
 | `raw/youtube/` | Immutable importer-preserved video metadata and transcript captures. |
 | `entities/` | Canonical pages whose exact `type` is `entity`. |
@@ -77,6 +79,13 @@ a valid source record or canonical page.
 - `provenance`: source traceability and claim lineage.
 - `research`: research collection, synthesis, and verification.
 - `workflow`: ordered operational processes and feedback loops.
+- `macro`: macroeconomic indicators, policy, and cross-market conditions.
+- `equity`: individual stocks, sectors, and equity-market analysis.
+- `earnings`: earnings calls, results briefings, and period-over-period performance.
+- `filing`: regulatory disclosures and statutory filings.
+- `valuation`: valuation methodology and financial metrics.
+- `crypto`: digital-asset markets and protocols.
+- `portfolio`: position sizing, allocation, and portfolio-level strategy.
 
 ## Raw source integrity
 
