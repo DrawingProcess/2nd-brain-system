@@ -258,3 +258,47 @@
   접근 불가했음(`docs/260731_05`에서 기록된 동일한 Yahoo SPA 제약).
   Canonical 승격은 보류 — 각 주제가 아직 단일 소스임.
 - Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-08-01] ingest | CD rates Aug 1 2026
+
+- Source: `https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-august-1-2026-best-cd-account-earns-415-apy-100000014.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/best-cd-rates-today-saturday-august-1-2026-best-cd-account-earns-4-15-apy.md`
+
+## [2026-08-01] ingest | Mortgage rates Aug 1 2026
+
+- Source: `https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-saturday-august-1-2026-rates-higher-than-friday-100000052.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/mortgage-and-refinance-interest-rates-today-saturday-august-1-2026-rates-higher.md`
+
+## [2026-08-01] ingest | BYD overseas sales flash charging
+
+- Source: `https://www.investors.com/news/tesla-rival-byd-sales-overseas-demand-flash-charging/?src=A00220&yptr=yahoo`
+- Status: 미검증
+- Created:
+  - `raw/articles/tesla-rival-byd-ramping-up-sales-on-overseas-demand-flash-charging.md`
+
+## [2026-08-01] update | finance-inbox-promote 자동화(Kimi K2/OpenRouter) 구축
+
+- Evidence: `docs/260801_04`에서 추정한 모델/비용을 바탕으로 `inbox/` →
+  `raw/articles/` 승격(2단계 B)을 자동화하는 Hermes cron job을 새로 만들고
+  실제 기사 3건으로 종단 검증함. 위 3건의 `ingest` 항목이 이 job의 검증
+  실행 결과물이다.
+- Created (저장소 외부, Hermes 홈):
+  - `~/.hermes/scripts/fetch-article-excerpt.py` (원문에서 텍스트만 추출,
+    raw HTML 전체를 에이전트 컨텍스트에 넣지 않기 위함)
+  - Hermes cron job `9e11da6aa541` (`finance-inbox-promote`, `30 3 * * *`,
+    `--provider openrouter --model moonshotai/kimi-k2-0905`, agent 모드)
+- Found + Fixed: 검증 실행 중 inbox 정리 단계(`rm`)가 Hermes 자체 보안
+  스캐너("Mass file deletion in a short window")에 차단됨 — raw 등록
+  자체는 3건 모두 성공했으나 inbox 파일은 지워지지 않았고, 모델이 이
+  실패를 Discord 보고에 정확히 남김. 조치: 프롬프트를 `rm` 대신
+  `inbox/.processed/`로 `mv`하도록 수정. 이번 실행에서 남은 3개 inbox
+  파일은 수동으로 `inbox/.processed/`에 이동 처리함.
+- Cost 실측: 빈 inbox 실행 ≈ $0.019, 기사 3건 처리 ≈ $0.153(건당 ≈
+  $0.051, `docs/260801_04` 사전 추정 $0.075보다 낮음 — 프롬프트 캐싱
+  효과로 추정).
+- Reference: `docs/260801_05_finance-inbox-promote-automation.md`
+- Navigation: `index.md` unchanged; canonical page count remains 0.
