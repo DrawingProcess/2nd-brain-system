@@ -86,6 +86,8 @@ a valid source record or canonical page.
 - `valuation`: valuation methodology and financial metrics.
 - `crypto`: digital-asset markets and protocols.
 - `portfolio`: position sizing, allocation, and portfolio-level strategy.
+- `personal-finance`: consumer financial products and advice (rates, savings,
+  insurance, financing) distinct from institutional/market analysis.
 
 ## Raw source integrity
 
