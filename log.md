@@ -302,3 +302,129 @@
   효과로 추정).
 - Reference: `docs/260801_05_finance-inbox-promote-automation.md`
 - Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-08-02] ingest | Car Loan Burden
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/1-5-car-buyers-stuck-142500536.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/1-in-5-new-car-buyers-are-stuck-in-a-000-a-month-nightmare-and-it-s-ruining-thei.md`
+
+## [2026-08-02] ingest | Best CD Rates
+
+- Source: `https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-august-1-2026-best-cd-account-earns-410-apy-100000014.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/best-cd-rates-today-saturday-august-1-2026-best-cd-account-earns-4-10-apy.md`
+
+## [2026-08-02] ingest | Dow Jones Futures
+
+- Source: `https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-spacex-amd-sandisk-eli-lilly-earnings-loom/?src=A00220&yptr=yahoo`
+- Status: 미검증
+- Created:
+  - `raw/articles/dow-jones-futures-market-rebounds-now-watch-for-this-spacex-amd-sandisk-eli-lill.md`
+
+## [2026-08-02] ingest | GE Aerospace Stocks
+
+- Source: `https://www.investors.com/news/ge-aerospace-ai-play-netapp-lead-5-stocks-near-buy-points/?src=A00220&yptr=yahoo`
+- Status: 미검증
+- Created:
+  - `raw/articles/ge-aerospace-ai-play-lead-five-stocks-near-buy-points.md`
+
+## [2026-08-02] ingest | Gold vs Silver ETF
+
+- Source: `https://finance.yahoo.com/markets/commodities/articles/gold-trust-vs-silver-trust-171701717.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/gold-trust-vs-silver-trust-which-precious-metal-etf-should-win-investor-dollars.md`
+
+## [2026-08-02] ingest | Reddit Stock
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/google-traffic-wobble-sends-major-170700469.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/google-traffic-wobble-sends-major-signal-for-sinking-reddit-stock.md`
+
+## [2026-08-02] ingest | HSA Retirement Tool
+
+- Source: `https://finance.yahoo.com/healthcare/articles/health-savings-accounts-great-retirement-212800955.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/health-savings-accounts-can-be-a-great-retirement-tool-if-you-re-healthy-or-weal.md`
+
+## [2026-08-02] ingest | Grail Stock Analysis
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/grail-gral-stock-buy-sell-172820956.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/is-grail-gral-stock-a-buy-sell-or-hold-at-under-0.md`
+
+## [2026-08-02] ingest | Fed Rate Outlook
+
+- Source: `https://finance.yahoo.com/economy/policy/articles/j-p-morgan-drops-fed-060300978.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/j-p-morgan-drops-fed-rate-bombshell-over-warsh-inflation.md`
+
+## [2026-08-02] ingest | Home Repair Costs
+
+- Source: `https://finance.yahoo.com/real-estate/articles/nearly-75-homeowners-spend-10-123000374.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/nearly-75-of-new-homeowners-spend-0-000-on-surprise-repairs-within-2-years-and-s.md`
+
+## [2026-08-02] ingest | Dalio Asset Warning
+
+- Source: `https://finance.yahoo.com/markets/currencies/articles/ray-dalio-warns-major-asset-125500604.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/ray-dalio-warns-this-major-asset-will-have-the-worst-return-guaranteed-and-you-p.md`
+
+## [2026-08-02] ingest | Kiyosaki Crash Warning
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/robert-kiyosaki-warns-boomers-set-121000989.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/robert-kiyosaki-warns-boomers-are-set-up-for-a-historic-rug-pull-and-will-end-up.md`
+
+## [2026-08-02] ingest | IRA Abroad Rules
+
+- Source: `https://finance.yahoo.com/markets/currencies/articles/2-irs-rules-allow-continue-133000736.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/the-2-irs-rules-that-allow-you-to-continue-making-ira-contributions-when-you-mov.md`
+
+## [2026-08-02] ingest | Travel Money Traps
+
+- Source: `https://finance.yahoo.com/small-business/articles/5-travel-money-traps-avoid-130000525.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/the-5-travel-money-traps-to-avoid-according-to-someone-who-has-visited-nearly-10.md`
+
+## [2026-08-02] ingest | Bank of England Coal
+
+- Source: `https://finance.yahoo.com/economy/policy/articles/bank-england-moving-away-coal-150000057.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/the-bank-of-england-is-moving-away-from-coal.md`
+
+## [2026-08-02] ingest | Fallen Angel Bond Fund
+
+- Source: `https://finance.yahoo.com/markets/options/articles/fallen-angel-bond-fund-pays-170754302.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/the-fallen-angel-bond-fund-pays-6-5-and-has-beaten-the-biggest-junk-fund-for-a-d.md`
+
+## [2026-08-02] ingest | Archer Aviation Stock
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/aerospace-stock-cheap-does-buy-173500686.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/this-aerospace-stock-is-cheap-but-does-that-make-it-a-buy-today.md`
+
+## [2026-08-02] ingest | Buffett Warning
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/warren-buffetts-berkshire-hathaway-sounding-173000045.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/warren-buffett-s-berkshire-hathaway-is-sounding-a-warning-what-history-tells-us.md`
