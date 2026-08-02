@@ -483,3 +483,133 @@
   대조로 확인.
 - Reference: `docs/260802_02_macro-financial-data-layer.md`
 - Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-08-03] ingest | Berkshire Alphabet Position
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/3-reasons-why-berkshire-hathaway-165000908.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/3-reasons-why-berkshire-hathaway-owns-9-billion-of-alphabet-stock.md`
+
+## [2026-08-03] ingest | Amazon Debt and AI Spending
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/amazons-debt-nearly-doubled-129-140000968.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/amazon-s-debt-nearly-doubled-to-29-billion-in-6-months-as-ceo-jassy-defends-20-b.md`
+
+## [2026-08-03] ingest | SpaceX Pre-Earnings Signal
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/analyst-sends-strong-signal-spacex-173300981.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/analyst-sends-strong-signal-on-spacex-stock-before-earnings.md`
+
+## [2026-08-03] ingest | Microsoft Cloud Revenue Analysis
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/cloud-revenue-soars-time-buy-163500803.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/as-cloud-revenue-soars-is-it-time-to-buy-microsoft-stock.md`
+
+## [2026-08-03] ingest | BofA Apple Bullish Outlook
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/bank-america-doubles-down-apple-170700925.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/bank-of-america-doubles-down-on-apple-stock-for-rest-of-2026.md`
+
+## [2026-08-03] ingest | Berkshire 8-Month High
+
+- Source: `https://www.cnbc.com/2026/08/01/-berkshire-hathaway-shares-hit-eight-month-high.html`
+- Status: 미검증
+- Created:
+  - `raw/articles/berkshire-hathaway-shares-hit-eight-month-high.md`
+
+## [2026-08-03] ingest | Best CD Rates Today
+
+- Source: `https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-sunday-august-2-2026-lock-in-up-to-410-apy-100000506.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/best-cd-rates-today-sunday-august-2-2026-lock-in-up-to-4-10-apy.md`
+
+## [2026-08-03] ingest | Bloom vs Oklo Comparison
+
+- Source: `https://finance.yahoo.com/energy/articles/bloom-energy-vs-oklo-power-172001626.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/bloom-energy-vs-oklo-which-power-stock-is-a-better-buy-in-2026.md`
+
+## [2026-08-03] ingest | Carmelo Contract Breakdown
+
+- Source: `https://finance.yahoo.com/small-business/articles/carmelo-anthony-breaks-down-100m-140000809.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/carmelo-anthony-breaks-down-how-a-00m-contract-shrinks-to-under-0m-and-where-the.md`
+
+## [2026-08-03] ingest | Cathie Wood Snowflake Sale
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/cathie-wood-sells-5-5-163300469.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/cathie-wood-sells-5-million-of-surging-tech-stock.md`
+
+## [2026-08-03] ingest | Goldman Traders Record Year
+
+- Source: `https://www.cnbc.com/2026/08/01/goldman-traders-are-on-pace-for-a-record-year-a-close-up-look-at-how-theyre-doing-it.html`
+- Status: 미검증
+- Created:
+  - `raw/articles/goldman-traders-are-on-pace-for-a-record-year-a-close-up-look-at-how-they-re-doi.md`
+
+## [2026-08-03] ingest | Morgan Stanley Crypto ETFs
+
+- Source: `https://finance.yahoo.com/markets/crypto/articles/morgan-stanley-just-launched-ethereum-172400392.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/morgan-stanley-just-launched-new-ethereum-and-solana-etfs-here-s-what-it-could-m.md`
+
+## [2026-08-03] ingest | Mortgage Rates Aug 2
+
+- Source: `https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-sunday-august-2-2026-rates-a-bit-lower-than-last-week-100000673.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/mortgage-and-refinance-interest-rates-today-sunday-august-2-2026-rates-a-bit-low.md`
+
+## [2026-08-03] ingest | Ramit Sethi Debt Counseling
+
+- Source: `https://finance.yahoo.com/small-business/articles/ramit-sethi-helps-newlyweds-tackle-133000103.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/ramit-sethi-helps-newlyweds-tackle-65-000-in-debt-including-the-0-000-he-hid-bef.md`
+
+## [2026-08-03] ingest | Semiconductor Sell-Off Strategy
+
+- Source: `https://finance.yahoo.com/markets/stocks/articles/semiconductor-sell-off-1-chip-170500118.html`
+- Status: 검증됨
+- Created:
+  - `raw/articles/semiconductor-sell-off-1-chip-stock-to-buy-1-to-hold-and-1-to-sell.md`
+
+## [2026-08-03] update | Discord 봇 인증/채널 설정 수정 (경제 지식 퀴즈 사전 준비)
+
+- Evidence: "매일 새벽 지식+퀴즈를 Discord로" 기능을 만들기 전에 "답장이
+  실제로 인식되는지" 시범 테스트를 진행하다가 Hermes 게이트웨이의
+  Discord 인증 설정이 두 군데 다 잘못돼 있음을 발견해 수정함
+  (`data/`, `raw/`, 위키 canonical과 무관, Hermes 홈 설정만 변경).
+- Found + Fixed (저장소 외부, `~/.hermes/.env`):
+  1. `DISCORD_ALLOWED_USERS=2nd-brain` — 실제 사용자가 아니라 봇 자기
+     자신의 이름이 들어가 있어 모든 사용자 메시지가 조용히 차단됨.
+     → 사용자 실제 Discord 숫자 ID(`1059828403110428834`)로 교체.
+     (중간에 사용자명 문자열(`seongjun_choi`)로 먼저 바꿨다가, 게이트웨이
+     레벨의 별도 인증 체크(`gateway/authz_mixin.py`)가 사용자명 해석 없이
+     원시 문자열을 숫자 ID와 비교한다는 걸 확인하고 숫자 ID로 재수정 —
+     어댑터 레벨 체크와 게이트웨이 레벨 체크 두 겹이라 사용자명 방식은
+     구조적으로 항상 실패했음.)
+  2. `DISCORD_FREE_RESPONSE_CHANNELS` 미설정 — 멘션 없는 일반 답장은
+     기본적으로 무시됨. → 크론 배달 채널(`1532595343110307900`)을 등록해
+     멘션 없이도 반응하도록 함.
+  3. `DISCORD_ALLOWED_CHANNELS`, `DISCORD_HOME_CHANNEL`을 둘 다
+     `1532595343110307900`로 설정 — 봇이 이 채널에서만 반응하도록 제한
+     (기존 홈 채널 `1224598309566418966`에서 변경).
+- Verification: 위 수정 후 실제 멘션 없는 답장이 정상 인식되고 봇이
+  응답함을 확인함(로그: `inbound message: ... msg='...' ` → 정상 응답 전달).
+- Navigation: `index.md` unchanged; canonical page count remains 0.
