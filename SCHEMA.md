@@ -21,6 +21,25 @@ Before curating, read this file, `index.md`, and the most recent entries in `log
 Zero canonical pages is a valid wiki state. The initial repository deliberately
 contains no raw source record and no canonical page.
 
+## Data layer (structured, continuously-updated series)
+
+`data/` holds machine-fetched structured time series (FRED macro indicators,
+SEC XBRL company financials) that are deterministically re-fetched and
+appended to on a schedule. This is deliberately **not** part of Layer 1: raw
+integrity assumes one immutable document per capture with a stable sha256,
+but a time series is expected to grow every run, so no hash or frontmatter
+contract applies here. Files are plain CSV, one file per series
+(`data/macro/<FRED_SERIES_ID>.csv`) or per ticker
+(`data/companies/<TICKER>/financials.csv`), append-only by fetch date. Not
+canonical evidence and not cited with `^[raw/...]` markers; canonical pages
+that draw a conclusion from `data/` should describe the series and date range
+used in prose instead.
+
+| Path | Role |
+| --- | --- |
+| `data/macro/` | FRED macro-cycle indicator time series, one CSV per series ID. |
+| `data/companies/<TICKER>/` | SEC XBRL-derived financial-statement time series per watchlist ticker. |
+
 ## Directory roles
 
 | Path | Role |

@@ -448,3 +448,38 @@
   (Goldman traders, Berkshire Hathaway, Best Buy CEO 전략 — Yahoo
   단독일 때보다 기관/기업 관련도가 높은 기사들).
 - Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-08-02] update | data/ 레이어 신설 — FRED 매크로 + SEC 재무 시계열 수집
+
+- Evidence: `docs/260802_01_Knowledge-Base.md`("뉴스 20% : 구조화 데이터
+  80%")를 실행에 옮기는 첫 단계. 워치리스트는 우선 NVDA, TSLA로 시작
+  (사용자가 이후 하나씩 추가 요청 예정). FRED_API_KEY는 사용자가
+  `~/.hermes/.env`에 직접 등록; Alpha Vantage/FMP(밸류에이션 배수용)는
+  아직 미보유 — 이번 단계에서는 키 없이 가능한 FRED·SEC EDGAR만 구축.
+- Schema change: `SCHEMA.md`에 `data/` 레이어를 신설(raw의 불변/sha256
+  계약과 별개— 계속 갱신되는 구조화 시계열이라 성격이 다름을 명시).
+  `data/macro/`, `data/companies/<TICKER>/` 디렉토리 역할 등록.
+- Created (저장소 내부):
+  - `data/macro/*.csv` (FRED Tier 1 지표 13종, 각 최대 3년치 초기 적재)
+  - `data/companies/NVDA/financials.csv`, `data/companies/TSLA/financials.csv`
+    (SEC XBRL 기반 분기/연간 재무제표 시계열)
+- Created (저장소 외부, Hermes 홈):
+  - `~/.hermes/scripts/fetch-fred-macro.py` — FRED API로 매크로 지표
+    수집, 기존 CSV 마지막 날짜 이후만 증분 추가.
+  - `~/.hermes/scripts/fetch-sec-financials.py` — SEC EDGAR
+    `companyfacts` API(키 불필요, User-Agent만 필요)로 워치리스트
+    티커의 재무제표 항목(매출/매출총이익/영업이익/순이익/EPS/영업현금흐름/
+    CapEx/R&D/장기부채) 추출.
+- Hermes cron 신설 (전부 `--no-agent`, LLM 호출 없음, 결정론적):
+  - `4e742a6edf84` (`fred-macro-fetch`, `0 2 * * *`)
+  - `087f14e755d7` (`sec-financials-fetch`, `10 2 * * *`)
+- Known gaps: ISM 제조업/서비스업 PMI, GDPNow는 FRED 무료 API로 더 이상
+  제공되지 않아 Tier 1 목표 16종 중 13종만 확보(문서화된 gap, 대체
+  소스 필요 시 별도 검토). Gold/Copper/Bitcoin 같은 Tier 2 상품·자산은
+  FRED에 신뢰할 만한 무료 시계열이 없어 이번 단계에서 제외.
+- Verification: 두 스크립트 모두 최초 실행으로 정상 데이터 확보(예:
+  T10Y2Y 최신값 +0.47로 비역전 상태, NVDA FY2026 매출 $215.9B, TSLA
+  FY2025 매출 $94.8B) — 임의 값이 아닌 실제 FRED/SEC 응답임을 raw JSON
+  대조로 확인.
+- Reference: `docs/260802_02_macro-financial-data-layer.md`
+- Navigation: `index.md` unchanged; canonical page count remains 0.
