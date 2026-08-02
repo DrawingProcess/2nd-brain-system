@@ -428,3 +428,23 @@
 - Status: 검증됨
 - Created:
   - `raw/articles/warren-buffett-s-berkshire-hathaway-is-sounding-a-warning-what-history-tells-us.md`
+
+## [2026-08-02] update | finance-morning-digest에 CNBC RSS 4종 추가
+
+- Evidence: Yahoo Finance RSS 단독으로는 CD/모기지 금리, 여행자보험 같은
+  개인재무 뉴스 비중이 높아 "중요한 기사만" 가져오고 싶다는 요청에 따라
+  뉴스 소스를 다각화함. CNBC RSS 후보 7개를 `curl`로 검증한 결과 6개가
+  정상 응답(economy/finance/markets/business/top-news/investing), 1개
+  (`id/15839263`, "earnings"로 추정했던 ID)는 실제로는 비디오 피드라 제외.
+  매크로/기업 초점에 맞는 4개만 채택하고 general 성격의 top-news·investing은
+  제외함.
+- Updated (저장소 외부, Hermes 홈):
+  - `~/.hermes/scripts/finance-morning-digest.py` — 단일 `RSS_URL` 문자열을
+    `RSS_FEEDS` 딕셔너리(yahoo + cnbc-economy/finance/markets/business)로
+    교체, 피드별 개별 실패를 허용(`fetch_all_feeds`가 개별 feed 예외를
+    잡아 나머지는 계속 진행), inbox 항목에 `feed` 필드 추가, 같은 실행 내
+    중복 링크 가드(`seen_this_run`) 추가.
+- Verification: 수동 실행으로 CNBC 기사 3건이 정상 큐잉됨을 확인
+  (Goldman traders, Berkshire Hathaway, Best Buy CEO 전략 — Yahoo
+  단독일 때보다 기관/기업 관련도가 높은 기사들).
+- Navigation: `index.md` unchanged; canonical page count remains 0.
