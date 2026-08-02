@@ -2,8 +2,8 @@
 
 **작성일**: 2026-08-01
 **작성자**: Claude Code
-**목적**: `docs/260801_01_current-system-architecture.md`에서 발견한 크론
-무결성 이슈를 `docs/260801_02_inbox-queue-pipeline-implementation.md`에서
+**목적**: `docs/dev-log/260801_01_current-system-architecture.md`에서 발견한 크론
+무결성 이슈를 `docs/dev-log/260801_02_inbox-queue-pipeline-implementation.md`에서
 구조적으로 해소한 뒤, 실제 반영이 끝난 현재 상태 기준으로 데이터 플로우와
 시스템 구조도를 다시 기록한다. 이 문서가 2026-08-01 기준 최신 스냅샷이다.
 
@@ -55,7 +55,7 @@ inbox/finance-*.md 하나씩
 ```
 
 2026-08-01 오늘 이 2단계 B를 9건에 대해 실행해 검증을 마쳤다
-(`docs/260801_02` §4, log.md 2026-08-01 `update` 항목).
+(`docs/dev-log/260801_02` §4, log.md 2026-08-01 `update` 항목).
 
 ## 3. 시스템 구조도
 
@@ -144,19 +144,19 @@ flowchart TB
 - 초기 수동 등록 기사 `korean-stocks-jump-record-14pct-ai-optimism.md`가
   `tags: news`를 쓰는데 `news`는 등록된 taxonomy에 없음 — `file-article.py`
   경로였다면 ERROR로 거부됐을 항목. 이번 작업 범위 밖이라 그대로 둠
-  (`docs/260801_02` §5 참고).
+  (`docs/dev-log/260801_02` §5 참고).
 - Yahoo Finance RSS는 매크로/종목/실적 외에 소비자 개인재무 콘텐츠(CD·
   모기지 금리, 저축·보험 가이드 등)도 함께 반환한다 — 별도 필터링 없이
   그대로 수집하기로 결정함(`personal-finance` 태그로 구분).
 - Apple 기사 등 일부는 Yahoo Finance 페이지의 JS 렌더링 제약으로 전체
-  본문이 아닌 teaser(`og:description`)만 확보 가능 (`docs/260731_05`에서
+  본문이 아닌 teaser(`og:description`)만 확보 가능 (`docs/dev-log/260731_05`에서
   최초 확인된 제약, 현재도 유효).
 
 ## 6. 참고
 
-- 이전 스냅샷(이슈 발견 시점): `docs/260801_01_current-system-architecture.md`
-- 재설계 구현 기록: `docs/260801_02_inbox-queue-pipeline-implementation.md`
+- 이전 스냅샷(이슈 발견 시점): `docs/dev-log/260801_01_current-system-architecture.md`
+- 재설계 구현 기록: `docs/dev-log/260801_02_inbox-queue-pipeline-implementation.md`
 - 목표/설계 아키텍처: `docs/architecture/second-brain-pkm-architecture.md`
-- 자동화 최초 구축: `docs/260731_04_hermes-finance-cron-setup.md`
-- 자동화 신뢰성 수정(1차): `docs/260731_05_finance-cron-reliability-fix.md`
+- 자동화 최초 구축: `docs/dev-log/260731_04_hermes-finance-cron-setup.md`
+- 자동화 신뢰성 수정(1차): `docs/dev-log/260731_05_finance-cron-reliability-fix.md`
 - 데이터 계약: `SCHEMA.md`, `AGENTS.md`

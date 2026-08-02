@@ -43,7 +43,7 @@
   → index.md + log.md를 canonical 변경과 같은 트랜잭션으로 동기화
 ```
 
-실측 사례: `docs/260731_03_inbox-classification-test.md`의 Korean-stocks 기사
+실측 사례: `docs/dev-log/260731_03_inbox-classification-test.md`의 Korean-stocks 기사
 1건 — canonical 승격은 소스 1건이라 보류되고 raw까지만 진행됨.
 
 ### 2.2 자동 경로 — Hermes cron (`finance-morning-digest`, 매일 03:00 KST)
@@ -69,7 +69,7 @@ Yahoo Finance RSS (curl, 브라우저 UA)
 
 canonical 페이지(`entities/` 등)는 이 경로에서 **의도적으로 생성되지 않는다** —
 다중 소스 판단과 wikilink 연결성 확보는 사람의 몫으로 남겨둠
-(`docs/260731_04_hermes-finance-cron-setup.md` §5).
+(`docs/dev-log/260731_04_hermes-finance-cron-setup.md` §5).
 
 ## 3. 시스템 구조도
 
@@ -152,13 +152,13 @@ flowchart TB
 | 등록 태그 | 원본 9종 + finance 7종 | 16 |
 | Hermes cron job | `finance-morning-digest` (`0 3 * * *`, Discord 배달) | 활성 |
 
-`git status`: `docs/260731_04`, `docs/260731_05`, 오늘 새벽 cron이 생성한 raw
+`git status`: `docs/dev-log/260731_04`, `docs/dev-log/260731_05`, 오늘 새벽 cron이 생성한 raw
 기사 2건이 아직 커밋되지 않은 상태(의도된 설계 — §2.2 참고).
 
 ## 5. 설계 대비 실제 차이 — 발견된 이슈
 
 오늘 새벽(2026-08-01 03:00~03:08 KST) cron 실행 로그(`~/.hermes/logs/agent.log`)와
-생성된 파일을 직접 대조한 결과, `docs/260731_05_finance-cron-reliability-fix.md`가
+생성된 파일을 직접 대조한 결과, `docs/dev-log/260731_05_finance-cron-reliability-fix.md`가
 기술한 "결정론적 스크립트 경로"가 이번 실행에서는 **지켜지지 않았다**.
 
 - 로그상 툴 호출 순서: `execute_code`(BLOCKED) → `read_file` ×2 → `search_files`
@@ -175,7 +175,7 @@ flowchart TB
 
 **원인 추정**: 로컬 12B 모델이 `execute_code`가 크론 환경에서 BLOCKED되자,
 `file-article.py`를 `terminal` 도구로 호출하는 대신 자신이 직접 `write_file`로
-결과를 작성하는 경로로 이탈한 것으로 보인다. `docs/260731_05`가 명시한
+결과를 작성하는 경로로 이탈한 것으로 보인다. `docs/dev-log/260731_05`가 명시한
 "가드가 있어 오류가 나면 조용히 오염되기보다 ERROR로 실패한다"는 안전장치는
 스크립트 자체의 검증 로직에 대한 것이며, **모델이 스크립트 호출 자체를
 건너뛰는 경우**는 방어하지 못한다.
@@ -186,7 +186,7 @@ flowchart TB
 ## 6. 참고
 
 - 설계/목표 아키텍처: `docs/architecture/second-brain-pkm-architecture.md`
-- 자동화 최초 구축: `docs/260731_04_hermes-finance-cron-setup.md`
-- 자동화 신뢰성 수정: `docs/260731_05_finance-cron-reliability-fix.md`
+- 자동화 최초 구축: `docs/dev-log/260731_04_hermes-finance-cron-setup.md`
+- 자동화 신뢰성 수정: `docs/dev-log/260731_05_finance-cron-reliability-fix.md`
 - 데이터 계약: `SCHEMA.md`, `AGENTS.md`
-- 이전 전체 분석: `docs/260731_01_project-analysis.md`
+- 이전 전체 분석: `docs/dev-log/260731_01_project-analysis.md`

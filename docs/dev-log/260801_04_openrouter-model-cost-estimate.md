@@ -3,7 +3,7 @@
 **작성일**: 2026-08-01
 **작성자**: Claude Code
 **목적**: Hermes에 OpenRouter API 키가 등록됨에 따라, `inbox/` → `raw/articles/`
-승격 작업(`docs/260801_03` §2.2 "자동 경로 B")을 자동화할 때 쓸 가성비 모델을
+승격 작업(`docs/dev-log/260801_03` §2.2 "자동 경로 B")을 자동화할 때 쓸 가성비 모델을
 추천하고, 문서 1건을 처리하는 데 드는 토큰/비용을 추정한다. Anthropic 키는
 인증 실패(401), OpenAI 키도 인증 실패(401)로 확인되어 OpenRouter로 전환함.
 
@@ -29,7 +29,7 @@
 ## 2. 토큰 추정 방법론
 
 실측 데이터가 있는 유일한 소스는 2026-08-01 03:00 KST 크론 실행 로그
-(`~/.hermes/logs/agent.log`, `docs/260801_01` §5에서 분석한 바로 그 실행)다.
+(`~/.hermes/logs/agent.log`, `docs/dev-log/260801_01` §5에서 분석한 바로 그 실행)다.
 이 실행은 기사 2건을 처리하며 API 호출 10회, 총 입력 282,238 토큰 / 출력
 13,851 토큰을 썼다 — 다만 이 실행은 `execute_code` 차단 이후 반복 재시도가
 섞인 **비정상 실행**이라 그대로 쓰기엔 과대추정이다.
@@ -102,13 +102,13 @@
    `finance-morning-digest.py`의 `fetch_teaser()` 로직 재사용).
 2. `finance-inbox-promote`라는 새 Hermes cron job 생성 — `--provider openrouter
    --model moonshotai/kimi-k2-0905`, agent 모드, `inbox/finance-*.md`를 읽어
-   `file-article.py`로 승격하는 프롬프트(`docs/260731_04`의 원래 프롬프트를
+   `file-article.py`로 승격하는 프롬프트(`docs/dev-log/260731_04`의 원래 프롬프트를
    inbox 큐 기반으로 재작성).
 3. 기존 `finance-morning-digest`(no-agent, RSS→inbox 큐잉)는 그대로 유지 —
    이번 변경은 별도 job을 하나 더 추가하는 것이지 기존 job을 건드리지 않음.
 
 ## 7. 참고
 
-- 자동 경로 A/B 구분: `docs/260801_03_updated-system-architecture.md` §2.2
-- 재설계 배경: `docs/260801_02_inbox-queue-pipeline-implementation.md`
-- 원본 크론 프롬프트(참고용): `docs/260731_04_hermes-finance-cron-setup.md`
+- 자동 경로 A/B 구분: `docs/dev-log/260801_03_updated-system-architecture.md` §2.2
+- 재설계 배경: `docs/dev-log/260801_02_inbox-queue-pipeline-implementation.md`
+- 원본 크론 프롬프트(참고용): `docs/dev-log/260731_04_hermes-finance-cron-setup.md`

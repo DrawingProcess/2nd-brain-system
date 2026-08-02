@@ -645,3 +645,27 @@
   함. 채점 품질이 기대에 못 미치면 라이브 챗 모델도 별도로 바꾸는 것을
   고려할 것.
 - Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-08-03] update | econ-daily-lesson 스케줄 05:00으로 변경 + docs 재구성
+
+- Evidence: 퀴즈 크론을 하루 중 가장 마지막(다른 크론들이 전부 끝난 뒤)으로
+  옮겨달라는 요청과, 이번 세션에서 작성한 개발 경위 문서(`docs/26*.md`
+  12건)를 `docs/dev-log/`로 모아달라는 요청을 함께 처리함.
+- Updated:
+  - Hermes cron `3d03d50a2cf6`(`econ-daily-lesson`) 스케줄을 `20 2 * * *`
+    → `0 5 * * *`로 변경. 현재 순서: 02:00 FRED → 02:10 SEC → 03:00 뉴스
+    수집 → 03:30 뉴스 승격 → **05:00 경제 퀴즈**(마지막).
+  - `docs/260731_01~05`, `docs/260801_01~05`, `docs/260802_01~02`
+    (총 12건)를 `git mv`로 `docs/dev-log/`로 이동, 파일 간 상호 참조 경로
+    (`docs/260...` → `docs/dev-log/260...`)도 함께 수정.
+  - `/SSD1/sjchoi/.claude/CLAUDE.md`(프로젝트 상위, 로컬 전역 규칙)의
+    "## 0. Project Structure" 문서 작성 규칙을
+    `docs/<date>_<sequence>_<message>.md` → `docs/dev-log/<date>_<sequence>_<message>.md`
+    로 변경 — 이 저장소뿐 아니라 `/SSD1/sjchoi` 하위 다른 프로젝트에도
+    적용되는 공통 규칙이라 이후 모든 프로세스 요약 문서가 이 위치를
+    따르게 됨.
+- Note: `log.md`는 append-only라 이전 항목들이 참조한 옛 `docs/260...`
+  경로(예: 이 로그 안의 여러 `Reference:` 줄)는 수정하지 않음 — 기록
+  당시 실제 경로였으므로 그대로 둠. 앞으로의 신규 항목만 `docs/dev-log/`
+  경로를 씀.
+- Navigation: `index.md` unchanged; canonical page count remains 0.

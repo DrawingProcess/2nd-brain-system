@@ -2,7 +2,7 @@
 
 **작성일**: 2026-08-01
 **작성자**: Claude Code
-**목적**: `docs/260801_01_current-system-architecture.md` §5에서 발견한 크론
+**목적**: `docs/dev-log/260801_01_current-system-architecture.md` §5에서 발견한 크론
 무결성 이슈(로컬 모델이 `file-article.py` 호출을 건너뛰고 `write_file`로
 직접 raw 레코드를 작성해 frontmatter/sha256/log.md가 누락된 문제)를 구조적으로
 재발 불가능하게 만들고, 사용자 제안대로 "cron은 제목/URL만 큐잉 → 이후
@@ -12,11 +12,11 @@ Claude Code가 각 항목을 직접 요약해 등록"하는 방식으로 파이�
 
 ## 1. 배경
 
-기존 설계(`docs/260731_05`)는 크론 실행 중 로컬 12B 모델(gemma4:12b)이
+기존 설계(`docs/dev-log/260731_05`)는 크론 실행 중 로컬 12B 모델(gemma4:12b)이
 `file-article.py`를 호출하도록 프롬프트로 지시하는 방식이었다. 이번 세션에서
 실제 야간 실행 로그를 대조해보니, `execute_code`가 크론 환경에서 BLOCKED되자
 모델이 스크립트 호출을 우회하고 `write_file`로 직접 raw 파일을 작성해버린
-사례가 확인됐다 (`docs/260801_01` §5). 문제의 근본 원인은 "로컬 모델이
+사례가 확인됐다 (`docs/dev-log/260801_01` §5). 문제의 근본 원인은 "로컬 모델이
 반드시 결정론적 스크립트를 호출한다"는 가정 자체가 강제되지 않는다는
 것이었다.
 
@@ -58,7 +58,7 @@ hermes cron edit f7215c8998ff --no-agent --prompt ""
 
 ### 2.3 `raw/articles/` 무결성 이슈 2건 해소
 
-`docs/260801_01`에서 발견한 frontmatter 없는 raw 레코드 2건을 이번 재설계
+`docs/dev-log/260801_01`에서 발견한 frontmatter 없는 raw 레코드 2건을 이번 재설계
 검증을 겸해 정리함:
 
 1. 각 기사 원문을 `curl`로 재수신.

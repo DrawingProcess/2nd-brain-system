@@ -2,8 +2,8 @@
 
 **작성일**: 2026-08-01
 **작성자**: Claude Code
-**목적**: `docs/260801_04`에서 추정한 비용/모델 선택을 바탕으로, `inbox/` →
-`raw/articles/` 승격(`docs/260801_03` §2.2 "자동 경로 B")을 실제로 자동화하는
+**목적**: `docs/dev-log/260801_04`에서 추정한 비용/모델 선택을 바탕으로, `inbox/` →
+`raw/articles/` 승격(`docs/dev-log/260801_03` §2.2 "자동 경로 B")을 실제로 자동화하는
 Hermes cron job을 만들고 실행 검증한 기록.
 
 ---
@@ -19,7 +19,7 @@ Hermes cron job을 만들고 실행 검증한 기록.
 2. **Hermes cron job `finance-inbox-promote`** (job id `9e11da6aa541`):
    - 스케줄 `30 3 * * *` (기존 `finance-morning-digest`의 03:00 수집 30분 뒤)
    - `--provider openrouter --model moonshotai/kimi-k2-0905` (agent 모드,
-     `docs/260801_04`의 1순위 추천 모델)
+     `docs/dev-log/260801_04`의 1순위 추천 모델)
    - workdir `/SSD1/sjchoi/2nd-brain-system`, 배달 동일 Discord 채널
    - 프롬프트: `inbox/finance-*.md`를 하나씩 처리 — `fetch-article-excerpt.py`
      로 원문 발췌 → 직접 요약 작성 → `SCHEMA.md` 등록 태그 중 선택 →
@@ -71,7 +71,7 @@ BLOCKED: Security scan — [CRITICAL] Mass file deletion in a short window:
 
 ## 3. 실측 비용 (예상치 대비 검증)
 
-`docs/260801_04`의 추정(건당 $0.075)과 실측을 비교:
+`docs/dev-log/260801_04`의 추정(건당 $0.075)과 실측을 비교:
 
 | 실행 | API 호출 | 입력 토큰 | 출력 토큰 | 비용(₩ 환산 전, Kimi 단가 기준) |
 | --- | --- | --- | --- | --- |
@@ -80,7 +80,7 @@ BLOCKED: Security scan — [CRITICAL] Mass file deletion in a short window:
 
 실측 건당 비용($0.051)이 사전 추정($0.075)보다 **낮게** 나왔다 — 로그에
 `cache=17280/17878 (97%)`처럼 OpenRouter/Kimi의 프롬프트 캐싱이 반복되는
-대화 이력 대부분을 캐시 히트로 처리했기 때문으로 보인다. 즉 `docs/260801_04`
+대화 이력 대부분을 캐시 히트로 처리했기 때문으로 보인다. 즉 `docs/dev-log/260801_04`
 의 추정은 보수적(=다소 과대)이었다는 뜻이며, 실제 월 비용은 그 문서의
 표보다 낮을 가능성이 높다.
 
@@ -90,12 +90,12 @@ BLOCKED: Security scan — [CRITICAL] Mass file deletion in a short window:
    보안 스캐너를 통과하는지 확인.
 2. `inbox/.processed/`가 쌓이면 주기적으로 사람이 훑어보거나 정리하는
    루틴이 필요할 수 있음 — 아직 자동 정리는 만들지 않음.
-3. `docs/260801_04`에서 제안했던 `deepseek/deepseek-chat-v3.2` 대비 테스트는
+3. `docs/dev-log/260801_04`에서 제안했던 `deepseek/deepseek-chat-v3.2` 대비 테스트는
    이번 세션에서는 하지 않음 — Kimi K2가 이미 잘 동작해 비교 시급성이
    낮아짐.
 
 ## 5. 참고
 
-- 모델/비용 추정 원본: `docs/260801_04_openrouter-model-cost-estimate.md`
-- 2단계 A/B 구조 설계: `docs/260801_03_updated-system-architecture.md`
-- 재설계 배경(로컬 모델 신뢰성 문제): `docs/260801_02_inbox-queue-pipeline-implementation.md`
+- 모델/비용 추정 원본: `docs/dev-log/260801_04_openrouter-model-cost-estimate.md`
+- 2단계 A/B 구조 설계: `docs/dev-log/260801_03_updated-system-architecture.md`
+- 재설계 배경(로컬 모델 신뢰성 문제): `docs/dev-log/260801_02_inbox-queue-pipeline-implementation.md`
