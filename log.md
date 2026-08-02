@@ -613,3 +613,35 @@
 - Verification: 위 수정 후 실제 멘션 없는 답장이 정상 인식되고 봇이
   응답함을 확인함(로그: `inbound message: ... msg='...' ` → 정상 응답 전달).
 - Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-08-03] update | econ-daily-lesson 크론 신설 (경제 지식 퀴즈)
+
+- Evidence: Discord 인증 수정이 검증된 뒤, "매일 새벽 지식 하나 + 어제
+  퀴즈"를 자동화하는 크론을 구축함. 쉬운 개념부터 차근차근이라는 요청에
+  따라 15개 주제로 구성된 고정 커리큘럼(매크로 사이클 → 밸류에이션
+  순서)을 만들고, 진도 관리는 결정론적 스크립트가, 실제 설명/퀴즈 문구
+  작성은 Kimi K2가 담당하도록 역할을 분리함(기존 finance 파이프라인과
+  동일한 원칙).
+- Created (저장소 외부, Hermes 홈):
+  - `~/.hermes/scripts/econ-curriculum.json` — 고정 15주제 커리큘럼(주제명
+    + 힌트), 매크로 사이클(채권/금리/인플레이션/고용/GDP/VIX/신용스프레드)
+    5~9번, 밸류에이션(P/E/EV-EBITDA/재무제표/FCF) 10~13번, 섹터로테이션
+    14번, 종합 15번 순서.
+  - `~/.hermes/scripts/advance-econ-lesson.py` — 결정론적 진도 관리:
+    `~/.hermes/state/econ-quiz-state.json`의 `curriculum_index`를 매 실행마다
+    +1(15 완료 시 순환), 오늘/어제 주제를 JSON으로 출력해 에이전트
+    프롬프트에 주입.
+  - `~/.hermes/state/econ-quiz-state.json` — 진도 상태(현재 index 0, 1/15
+    학습 완료).
+- Hermes cron 신설: `3d03d50a2cf6` (`econ-daily-lesson`, `20 2 * * *`,
+  `--script advance-econ-lesson.py`, agent 모드, `--provider openrouter
+  --model moonshotai/kimi-k2-0905`).
+- Verification: 수동 1회 실행 — "채권 가격과 금리의 역관계"를 쉬운 예시와
+  함께 정상 설명, 첫 실행이라 퀴즈는 생략하고 안내 문구만 정상 출력됨을
+  확인. API 호출 1회, 입력 15,508 / 출력 460 토큰(비용 미미).
+- Note: 실제 답장에 대한 채점/후속 질문은 이 크론이 아니라 상시 실행 중인
+  Discord 라이브 챗(로컬 `gemma4:12b`, 기본 모델)이 채널 대화 맥락을 보고
+  처리함 — 별도 상태 연동 없이 Discord 채널 히스토리 자체가 맥락 역할을
+  함. 채점 품질이 기대에 못 미치면 라이브 챗 모델도 별도로 바꾸는 것을
+  고려할 것.
+- Navigation: `index.md` unchanged; canonical page count remains 0.
