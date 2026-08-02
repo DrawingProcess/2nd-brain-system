@@ -669,3 +669,31 @@
   당시 실제 경로였으므로 그대로 둠. 앞으로의 신규 항목만 `docs/dev-log/`
   경로를 씀.
 - Navigation: `index.md` unchanged; canonical page count remains 0.
+
+## [2026-08-03] update | econ-daily-lesson을 gemma4:12b로 전환, finance-inbox-promote 일시정지
+
+- Evidence: "뉴스 요약(`finance-inbox-promote`)을 제외하면 굳이 유료 Kimi가
+  필요 없지 않냐"는 질문에서 시작. 실제로 확인해보니 `fred-macro-fetch`/
+  `sec-financials-fetch`는 이미 `--no-agent`라 LLM을 아예 안 씀 — Kimi를
+  실제로 쓰는 건 `finance-inbox-promote`(다단계 도구 호출 신뢰성이
+  중요)와 `econ-daily-lesson`(도구 호출 없는 순수 글쓰기, 성격이 다름)
+  둘뿐이었음.
+- Updated:
+  - `econ-daily-lesson`(`3d03d50a2cf6`)의 `--model`/`--provider` 핀을
+    해제(`hermes cron edit --model "" --provider ""`) → `config.yaml`
+    기본값인 로컬 `gemma4:12b`를 따르도록 되돌림. 수동 실행으로 품질
+    확인: 인플레이션 개념을 적절한 비유(물가 상승 예시)로 설명하고
+    어제 퀴즈(채권 가격-금리)도 정답 노출 없이 올바른 형식으로 생성함
+    — 도구 호출이 없는 작업이라 로컬 모델로도 충분한 것으로 판단.
+    (지연시간은 Kimi 대비 크게 늘어남: ~11s → ~57s, 하루 1회 실행이라
+    허용 가능.)
+- Paused (삭제 아님, `hermes cron pause`):
+  - `finance-inbox-promote`(`9e11da6aa541`) — 사용자가 "뉴스는 inbox
+    적재까지만 자동화하고, 요약·승격은 나중에 Claude Code skill로 직접
+    처리하겠다"고 결정함에 따라 잠정 중단. `finance-morning-digest`
+    (RSS→inbox 큐잉, no-agent)는 그대로 유지 — inbox에는 계속 쌓이되
+    raw/로의 자동 승격만 멈춤. Job 설정(모델·프롬프트 등)은 그대로
+    보존되어 있어 나중에 `hermes cron resume`으로 즉시 재개 가능.
+- Next: inbox의 `finance-*.md` 미승격 항목은 이후 Claude Code skill이
+  만들어지면 그걸로 처리 예정(아직 미구현).
+- Navigation: `index.md` unchanged; canonical page count remains 0.
